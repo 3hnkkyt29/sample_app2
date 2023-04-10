@@ -14,13 +14,13 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
   end
-  
+
   def create
     list = List.new(list_params)
     list.save
     redirect_to list_path(list.id)
   end
-  
+
   def update
     list = List.find(params[:id])
     list.update(list_params)
@@ -29,7 +29,7 @@ class ListsController < ApplicationController
 
   private
   def list_params
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body, :image)
   end
-  
+
 end
